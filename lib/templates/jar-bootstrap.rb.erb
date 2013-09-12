@@ -1,0 +1,17 @@
+require 'rubygems'
+require 'zip/zip'
+
+unless File.exist?("<%= archive_name %>.war.extracted")
+  puts "First run... extracting war contents to <%= archive_name %>.war.extracted..."
+  %x{unzip <%= archive_name %>.war -d<%= archive_name %>.war.extracted}
+  puts "Done."
+end
+
+puts "Loading Puma..."
+
+Dir.chdir("<%= archive_name %>.war.extracted/WEB-INF")
+
+NOT_IN_SERVLET_CONTAINER = true
+
+gem 'puma'
+load Gem.bin_path('puma', 'puma')

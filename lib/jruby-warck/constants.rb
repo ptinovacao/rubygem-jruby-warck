@@ -6,23 +6,23 @@ module JrubyWarck
     HOME = File.expand_path(File.dirname(__FILE__) + '/../..') unless defined?(HOME)
 
     WEB_XML = <<-XML
-    <!DOCTYPE web-app PUBLIC
-      "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-      "http://java.sun.com/dtd/web-app_2_3.dtd">
-    <web-app>
-      <filter>
-        <filter-name>RackFilter</filter-name>
-        <filter-class>org.jruby.rack.RackFilter</filter-class>
-      </filter>
-      <filter-mapping>
-        <filter-name>RackFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-      </filter-mapping>
+<!DOCTYPE web-app PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+  "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <filter>
+    <filter-name>RackFilter</filter-name>
+    <filter-class>org.jruby.rack.RackFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>RackFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
-      <listener>
-        <listener-class><%= context_listener %></listener-class>
-      </listener>
-    </web-app>
+  <listener>
+    <listener-class><%= context_listener %></listener-class>
+  </listener>
+</web-app>
     XML
 
     CONTEXT_LISTENERS = {
@@ -36,6 +36,10 @@ Created-By: jruby-warck
 Main-Class: org.jruby.JarBootstrapMain
 Class-Path: /opt/jruby/lib/jruby-complete/jruby-complete.jar #{::JRubyJars.jruby_rack_jar_path}
     MANIFEST
+
+    INIT = <<-_INIT
+# rack.version: #{JRuby::Rack::VERSION}
+    _INIT
 
     RUNNING_FROM = Dir.pwd
 

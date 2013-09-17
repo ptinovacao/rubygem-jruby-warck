@@ -38,6 +38,14 @@ module JrubyWarck::Manipulations
     cp web_xml_path, "#{WEB_INF}"
   end
 
+  def add_init_file
+    puts "++ Generating init.rb"
+    
+    init = File.new(META_INF + "/init.rb", "w")
+    init.puts(INIT)
+    init.close
+  end
+
   def add_rackup_file
     puts "++ Copying #{RACKUP_FILE} to #{WEB_INF}"
     cp RACKUP_FILE, WEB_INF

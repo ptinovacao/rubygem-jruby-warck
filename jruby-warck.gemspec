@@ -1,4 +1,4 @@
-require 'lib/jruby-warck/version.rb'
+require './lib/jruby-warck/version.rb'
 Gem::Specification.new do |s|
   s.name        = "jruby-warck"
   s.version     = JrubyWarck::VERSION.version 

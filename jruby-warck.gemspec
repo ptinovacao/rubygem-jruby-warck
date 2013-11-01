@@ -4,6 +4,7 @@ Gem::Specification.new do |s|
   s.version     = JrubyWarck::VERSION.version 
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Nuno Correia"]
+  s.license     = "MIT"
   s.email       = ["nuno-g-correia@ext.ptinovacao.pt"]
   s.homepage    = "http://github.com/ptinovacao/rubygem-jruby-warck"
   s.summary     = "Kinda like warbler, except our way"

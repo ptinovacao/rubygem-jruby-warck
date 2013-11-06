@@ -49,7 +49,7 @@ Class-Path: /opt/jruby/lib/jruby-complete/jruby-complete.jar #{::JRubyJars.jruby
 
     RACKUP_FILE = "config.ru"
 
-    BOOTSTRAP_ERB = File.read(File.exist?(custom_bootstrap = RUNNING_FROM + "/jar-bootstrap.rb.erb") ? custom
+    BOOTSTRAP_ERB = File.read(File.exist?(custom_bootstrap = RUNNING_FROM + "/jar-bootstrap.rb.erb") ? custom_bootstrap
                                                                                                      : (HOME + "/lib/templates/jar-bootstrap.rb.erb"))
 
     # additional filename patterns to be included inside the archive

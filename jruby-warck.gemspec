@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   %w{rack jruby-jars jruby-rack}.each { |dep| s.add_runtime_dependency dep }
   s.add_runtime_dependency 'rubyzip', '>= 1.1.0'
  
-  s.files        = Dir.glob("{bin,lib}/**/*") + %w(README.md)
+  s.files        = `git ls-files`.split("\n") 
   s.executables  << 'warck'
   s.require_path = 'lib'
 end

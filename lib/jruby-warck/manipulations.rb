@@ -107,15 +107,19 @@ module JrubyWarck::Manipulations
     bootstrap.close
   end
 
-  def archive_war(archive_name)
+  def archive_war(archive_name, force = false)
     puts "++ Creating war file #{archive_name}.war"
 
-    if File.exist? "#{archive_name}.war"
-      $stderr.puts "!! #{archive_name}.war already exists, aborting"
-      exit 1
+    if File.exist?("#{archive_name}.war")
+      unless force
+        $stderr.puts "!! #{archive_name}.war already exists, aborting"
+        exit 1
+      end
+
+      File.delete("#{archive_name}.war")
     end
 
-    Zip::ZipFile.open("#{RUNNING_FROM}/#{archive_name}.war", Zip::ZipFile::CREATE) do |zip|
+    Zip::File.open("#{RUNNING_FROM}/#{archive_name}.war", Zip::File::CREATE) do |zip|
       Dir.chdir(BUILD_DIR)
       Dir["**/"].each { |d| zip.mkdir(d, 0744) }
       FileList["**/*"].exclude { |f| File.directory?(f) }.each { |f| puts "  ++ Adding #{f}"; zip.add(f, f) }

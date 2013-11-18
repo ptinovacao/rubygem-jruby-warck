@@ -2,7 +2,7 @@ require 'rake'
 require 'jruby-warck/version'
 require 'jruby-warck/constants'
 require 'jruby-warck/manipulations'
-
+require 'optparse'
 require 'zip'
 require 'erb'
 
@@ -34,7 +34,7 @@ class JrubyWarck::Application < Rake::Application
 
   def run
     Rake.application = self
+
     super
   end
 end
-

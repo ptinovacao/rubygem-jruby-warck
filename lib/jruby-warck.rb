@@ -3,7 +3,7 @@ require 'jruby-warck/version'
 require 'jruby-warck/constants'
 require 'jruby-warck/manipulations'
 
-require 'zip/zip'
+require 'zip'
 require 'erb'
 
 class JrubyWarck::Application < Rake::Application

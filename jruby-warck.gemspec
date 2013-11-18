@@ -10,8 +10,9 @@ Gem::Specification.new do |s|
   s.summary     = "Kinda like warbler, except our way"
   s.description = "Kinda like warbler, except WAR-only and contained in a single Rakefile."
 
-  %w{rack rubyzip jruby-jars jruby-rack}.each { |dep| s.add_runtime_dependency dep }
-  
+  %w{rack jruby-jars jruby-rack}.each { |dep| s.add_runtime_dependency dep }
+  s.add_runtime_dependency 'rubyzip', '>= 1.1.0'
+ 
   s.files        = Dir.glob("{bin,lib}/**/*") + %w(README.md)
   s.executables  << 'warck'
   s.require_path = 'lib'

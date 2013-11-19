@@ -54,9 +54,9 @@ Class-Path: /opt/jruby/lib/jruby-complete/jruby-complete.jar #{::JRubyJars.jruby
 
     # additional filename patterns to be included inside the archive
     # default is all yml files
-    SELECT_FILES = FileList[IO.readlines(Dir.pwd + "/select.files").map(&:chomp).reject { |line| line[0] == "#" }] rescue FileList["**/*.yml", "**/*.erb"]
+    SELECT_FILES = FileList[IO.readlines(Dir.pwd + "/select.files").map(&:chomp).reject { |line| line.each_char.first == "#" }] rescue FileList["**/*.yml", "**/*.erb"]
     # filename patterns to be rejected from the archive
     # default is none
-    REJECT_FILES = FileList[IO.readlines(Dir.pwd + "/reject.files").map(&:chomp).reject { |line| line[0] == "#" }] rescue FileList[]
+    REJECT_FILES = FileList[IO.readlines(Dir.pwd + "/reject.files").map(&:chomp).reject { |line| line.each_char.first == "#" }] rescue FileList[]
   end
 end

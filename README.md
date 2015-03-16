@@ -32,3 +32,5 @@ Additionally, by default it will also include all .yml and .erb files, but there
 * To select exactly what files will be brought, create a "select.files" inside the application directory containing a glob pattern per line for the filenames you need. Note that this will override the default, so that no other files will be included.
 
 * To keep any files from being included, create "reject.files" inside the app directory containing a glob pattern per line for the filenames you want to reject.
+
+Test

@@ -10,7 +10,6 @@ Yes, it's like Warbler, but far simpler.
 ## Usage
 
 ### Dependencies
-  * jruby-jars
   * jruby-rack
 
 ### Basic
@@ -33,4 +32,5 @@ Additionally, by default it will also include all .yml and .erb files, but there
 
 * To keep any files from being included, create "reject.files" inside the app directory containing a glob pattern per line for the filenames you want to reject.
 
-Test
+### Customizing classpath
+By default MANIFEST.MF includes jruby-complete on the classpath. However, if your application needs to add addicional entries to classpath, create a "cp.entries" file, and specify one entry per line.

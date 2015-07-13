@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = "Kinda like warbler, except WAR-only and contained in a single Rakefile."
 
   %w{rack jruby-rack}.each { |dep| s.add_runtime_dependency dep }
-  s.add_runtime_dependency 'rubyzip', '>= 1.1.0'
+  s.add_runtime_dependency 'rubyzip', '>= 0.9.9'
  
   s.files        = `git ls-files`.split("\n") 
   s.executables  << 'warck'

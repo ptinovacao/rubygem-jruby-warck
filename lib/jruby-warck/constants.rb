@@ -7,6 +7,7 @@ module JrubyWarck
     HOME = File.expand_path(File.dirname(__FILE__) + '/../..') unless defined?(HOME)
 
     ADDITIONAL_CLASSPATH = FileList[IO.readlines(Dir.pwd + "/cp.entries").map(&:chomp).reject { |line| line.each_char.first == "#" }] rescue FileList[]
+    CLASSPATH = "Class-Path: /opt/jruby/lib/jruby-complete/jruby-complete.jar#{ADDITIONAL_CLASSPATH}".scan(/.{70}/).join("\n ")
 
     WEB_XML = <<-XML
 <!DOCTYPE web-app PUBLIC
@@ -37,7 +38,7 @@ module JrubyWarck
 Manifest-Version: 1.0
 Created-By: jruby-warck
 Main-Class: org.jruby.JarBootstrapMain
-Class-Path: /opt/jruby/lib/jruby-complete/jruby-complete.jar #{ADDITIONAL_CLASSPATH}
+#{CLASSPATH}
     MANIFEST
 
     INIT = <<-_INIT

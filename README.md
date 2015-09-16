@@ -16,8 +16,8 @@ Yes, it's like Warbler, but far simpler.
 
   1. change directory to the root of your application
   2. run "rake assets:precompile" if you've a Rails application.
-  3. run "warck package [war_name]" (If you need to compile the source code, use "warck package_compiled [war_name]" instead)
-  4. You can now deploy the resulting jar in a servlet container or run in standalone mode, i.e, java -jar [war_name].
+  3. run "warck package[war_name]" (If you need to compile the source code, use "warck package_compiled[war_name]" instead)
+  4. You can now deploy the resulting jar in a servlet container or run in standalone mode, i.e, java -jar [war_name].war
 
 ### Customizing what gets in the .war
 

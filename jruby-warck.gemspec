@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/ptinovacao/rubygem-jruby-warck"
   s.summary     = "Kinda like warbler, except our way"
   s.description = "Kinda like warbler, except WAR-only and contained in a single Rakefile."
-  s.add_runtime_dependency 'rack', '~>0'
-  s.add_runtime_dependency 'jruby-rack', '~>0'
+  s.add_runtime_dependency 'rack'
+  s.add_runtime_dependency 'jruby-rack'
   s.add_runtime_dependency 'rubyzip', '~> 1.1', '>= 1.1.7'
  
   s.files        = `git ls-files`.split("\n") 
